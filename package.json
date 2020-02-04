@@ -1,0 +1,23 @@
+{
+  "name": "d3-histogram",
+  "version": "1.0.0",
+  "description": "example histogram using d3.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngalvin93/d3-histogram.git"
+  },
+  "keywords": [
+    "javascript",
+    "d3"
+  ],
+  "author": "Alvin Ng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngalvin93/d3-histogram/issues"
+  },
+  "homepage": "https://github.com/ngalvin93/d3-histogram#readme"
+}
