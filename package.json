@@ -4,7 +4,8 @@
   "description": "example histogram using d3.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node routes/app.js",
+    "dev": "nodemon routes/app.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/ngalvin93/d3-histogram/issues"
   },
-  "homepage": "https://github.com/ngalvin93/d3-histogram#readme"
+  "homepage": "https://github.com/ngalvin93/d3-histogram#readme",
+  "dependencies": {
+    "d3": "5.15.0",
+    "express": "4.17.1",
+    "nodemon": "2.0.2"
+  }
 }
