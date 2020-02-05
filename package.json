@@ -4,8 +4,8 @@
   "description": "example histogram using d3.js",
   "main": "index.js",
   "scripts": {
-    "start": "node routes/app.js",
-    "dev": "nodemon routes/app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
