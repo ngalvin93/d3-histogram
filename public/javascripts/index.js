@@ -28,7 +28,7 @@ console.log('connected!')
 //     .attr('x', d => scale(d) - 3)
 //     .attr('y', barHeight / 2)
 //     .attr('dy', '.35em')
-//     .text(d => d)
+//     .text(d => d) 
 
 // d3.select('.chart')
 //         .selectAll('div')
@@ -36,7 +36,20 @@ console.log('connected!')
 //     .enter().append('div')
 //         .style('width', d => scale(d) + 'px')
 //         .text(d => d)
-
+var x = d3.scaleLinear()
+.domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+.range([0, width]);
+svg.append("g")
+.attr("transform", "translate(0," + height + ")")
+.call(d3.axisBottom(x));
 
 d3.csv('../MOCK_DATA.csv')
-    .then(data => console.log(data))
+    .then(data => {
+        const age = data.map(name => parseInt(name.age))
+        const histogram = d3.histogram()
+            .value(d => d.age)
+            .domain(x.domain())
+            .thresholds(x.ticks(10))
+            
+        console.log(histogram)
+    })
