@@ -1,4 +1,4 @@
-console.log('connected!')
+console.log('connected!!!!')
 
 // const data = [4, 8, 15, 16, 23, 42]
 
@@ -36,20 +36,29 @@ console.log('connected!')
 //     .enter().append('div')
 //         .style('width', d => scale(d) + 'px')
 //         .text(d => d)
-var x = d3.scaleLinear()
-.domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
-.range([0, width]);
-svg.append("g")
-.attr("transform", "translate(0," + height + ")")
-.call(d3.axisBottom(x));
 
-d3.csv('../MOCK_DATA.csv')
-    .then(data => {
-        const age = data.map(name => parseInt(name.age))
-        const histogram = d3.histogram()
-            .value(d => d.age)
-            .domain(x.domain())
-            .thresholds(x.ticks(10))
+// var x = d3.scaleLinear()
+// .domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+// .range([0, width]);
+// svg.append("g")
+// .attr("transform", "translate(0," + height + ")")
+// .call(d3.axisBottom(x));
+
+// d3.csv('../MOCK_DATA.csv')
+//     .then(data => {
+//         const age = data.map(name => parseInt(name.age))
+//         const histogram = d3.histogram()
+//             .value(d => d.age)
+//             .domain(x.domain())
+//             .thresholds(x.ticks(10))
             
-        console.log(histogram)
-    })
+//         console.log(histogram)
+//     })
+
+var svg = d3.select("#dataviz_area")
+svg.append("circle")
+  .attr("cx", 0).attr("cy", 0).attr("r", 40).style("fill", "blue");
+svg.append("circle")
+  .attr("cx", 140).attr("cy", 70).attr("r", 40).style("fill", "red");
+svg.append("circle")
+  .attr("cx", 300).attr("cy", 100).attr("r", 40).style("fill", "green");
