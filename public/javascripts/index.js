@@ -67,6 +67,8 @@ svg.append("circle")
 svg.append("circle")
   .attr("cx", x(75)).attr("cy", 100).attr("r", 40).style("fill", "green");
 
+svg.call(d3.axisBottom(x))
+
 console.log(x(0))
 console.log(x(25))
 console.log(x(50))
