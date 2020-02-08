@@ -55,16 +55,20 @@ console.log('connected!!!!')
 //         console.log(histogram)
 //     })
 
-const svg = d3.select("#dataviz_area")
-svg.append("circle")
-  .attr("cx", 0).attr("cy", 0).attr("r", 40).style("fill", "blue");
-svg.append("circle")
-  .attr("cx", 140).attr("cy", 70).attr("r", 40).style("fill", "red");
-svg.append("circle")
-  .attr("cx", 300).attr("cy", 100).attr("r", 40).style("fill", "green");
-
 const x = d3.scaleLinear()
     .domain([0, 100]) // min and the max of the data: 0 to 100 if percentages
     .range([0, 400]) // the corresponding value I want in Pixel
 
+const svg = d3.select("#dataviz_area")
+svg.append("circle")
+  .attr("cx", 0).attr("cy", 100).attr("r", 40).style("fill", "blue");
+svg.append("circle")
+  .attr("cx", x(25)).attr("cy", 100).attr("r", 40).style("fill", "red");
+svg.append("circle")
+  .attr("cx", x(75)).attr("cy", 100).attr("r", 40).style("fill", "green");
+
+console.log(x(0))
 console.log(x(25))
+console.log(x(50))
+console.log(x(75))
+console.log(x(100))
