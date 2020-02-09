@@ -75,9 +75,14 @@ console.log('connected!!!!')
 // console.log(x(75))
 // console.log(x(100))
 
-var margin = {top: 10, right: 40, bottom: 30, left: 30},
-    width = 450 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = { // this is the margin around the graph
+  top: 30,
+  right: 30,
+  bottom: 30,
+  left: 30
+},
+  width = 600 - margin.left - margin.right, // actual pixel width of graph with margins
+  height = 600 - margin.top - margin.bottom; // actual pixel height of graph with margins
 
 // append the svg object to the body of the page
 var sVg = d3.select("#Area")
@@ -87,6 +92,9 @@ var sVg = d3.select("#Area")
   // translate this svg element to leave some margin.
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Create data
+const data = [ {x:10, y:20}, {x:40, y:90}, {x:80, y:50} ]
 
 // X scale and Axis
 var x = d3.scaleLinear()
@@ -104,5 +112,14 @@ var y = d3.scaleLinear()
 sVg
   .append('g')
   .call(d3.axisLeft(y));
+
+sVg
+.selectAll("whatever")
+.data(data)
+.enter()
+.append("circle")
+  .attr("cx", function(d){ return x(d.x) })
+  .attr("cy", function(d){ return y(d.y) })
+  .attr("r", 4)
 
 
