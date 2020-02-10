@@ -123,3 +123,10 @@ sVg
   .attr("r", 4)
 
 
+const test = d3.select('#test')
+  test.append('svg') // append a svg
+    .attr('width', 600)
+    .attr('height', 200)
+    .style('background', 'red')
+console.log(test)
+
