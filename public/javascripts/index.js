@@ -130,3 +130,11 @@ const test = d3.select('#test')
     .style('background', 'red')
 console.log(test)
 
+// const x = d3.scaleLinear()
+//   .domain([0,100])
+//   .range([0,100])
+// test
+//   .append('g')
+//   .attr('transform', 'translate(0,100)')
+//   .call(d3.axisBottom(x))
+
