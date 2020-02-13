@@ -138,3 +138,5 @@ console.log(test)
 //   .attr('transform', 'translate(0,100)')
 //   .call(d3.axisBottom(x))
 
+const barChart = d3.select('#dataviz_area')
+console.log('HERE', barChart)
