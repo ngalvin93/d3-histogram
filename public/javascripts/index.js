@@ -138,5 +138,20 @@ console.log(test)
 //   .attr('transform', 'translate(0,100)')
 //   .call(d3.axisBottom(x))
 
+const barChartMargin = {
+  top: 30,
+  right: 30,
+  bottom: 30,
+  left: 30
+},
+barChartWidth = 600 - barChartMargin.right - barChartMargin.left,
+barChartHeight = 600 - barChartMargin.top - barChartMargin.bottom
+
 const barChart = d3.select('#dataviz_area')
-console.log('HERE', barChart)
+
+barChart.append('svg')
+  .attr('width', barChartWidth + barChartMargin.left + barChartMargin.right)
+  .attr('height', barChartHeight + barChartMargin.top + barChartMargin.bottom)
+  .style('background', 'blue')
+
+console.log(barChart)
