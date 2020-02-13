@@ -138,6 +138,7 @@ console.log(test)
 //   .attr('transform', 'translate(0,100)')
 //   .call(d3.axisBottom(x))
 
+// set the margins, height and width
 const barChartMargin = {
   top: 30,
   right: 30,
@@ -147,11 +148,23 @@ const barChartMargin = {
 barChartWidth = 600 - barChartMargin.right - barChartMargin.left,
 barChartHeight = 600 - barChartMargin.top - barChartMargin.bottom
 
+
+// select the node
 const barChart = d3.select('#dataviz_area')
 
+// create svg groups in the selection and set the dimension
 barChart.append('svg')
   .attr('width', barChartWidth + barChartMargin.left + barChartMargin.right)
   .attr('height', barChartHeight + barChartMargin.top + barChartMargin.bottom)
   .style('background', 'blue')
+.append('g')
+  .attr('transform', 'translate('+ margin.left + margin.top +')')
 
-console.log(barChart)
+// get the data
+d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", (data) => {
+  // set the x axis
+  const xBarChart = d3.scaleLinear()
+})
+
+
+
