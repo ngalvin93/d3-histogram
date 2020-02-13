@@ -160,10 +160,15 @@ barChart.append('svg')
 .append('g')
   .attr('transform', 'translate('+ margin.left + margin.top +')')
 
-// get the data
+// get the csv data
 d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", (data) => {
-  // set the x axis
+  // set the x axis; scale and draw
   const xBarChart = d3.scaleLinear()
+    .domain([0, d3.max(data, (d) => d.price)]) // this is the min to max x axis values
+    .range([0, barChartWidth]) // this is the actual width of the x axis
+  barChart.append('g')
+    .attr('transform', 'translate(0,' + height + ')')
+    .call(d3.axisBottom(xBarChart))
 })
 
 
