@@ -156,7 +156,7 @@ const barChart = d3.select('#dataviz_area')
 barChart.append('svg')
   .attr('width', barChartWidth + barChartMargin.left + barChartMargin.right)
   .attr('height', barChartHeight + barChartMargin.top + barChartMargin.bottom)
-  .style('background', 'blue')
+  // .style('background', 'blue')
 .append('g')
   .attr('transform', 'translate('+ margin.left + margin.top +')')
 
@@ -169,6 +169,31 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
   barChart.append('g')
     .attr('transform', 'translate(0,' + height + ')')
     .call(d3.axisBottom(xBarChart))
+// set parameters for the histogram
+  const histogramChart = d3.histogram()
+    .value((d) => d.price)
+    .domain(xBarChart.domain())
+    .thresholds(xBarChart.ticks(70))
+  
+  const bins = histogramChart(data)
+
+    // Y axis: scale and draw:
+    var yBarChart = d3.scaleLinear()
+    .range([barChartHeight, 0]);
+    yBarChart.domain([0, d3.max(bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+  barChart.append("g")
+    .call(d3.axisLeft(yBarChart));
+
+// append the bar rectangles to the svg element
+  barChart.selectAll("rect")
+    .data(bins)
+    .enter()
+    .append("rect")
+      .attr("x", 1)
+      .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+      .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+      .attr("height", function(d) { return barChartHeight - y(d.length); })
+      .style("fill", "#69b3a2")
 })
 
 
