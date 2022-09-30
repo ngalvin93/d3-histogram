@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/ngalvin93/d3-histogram#readme",
   "dependencies": {
-    "d3": "5.15.0",
+    "d3": "7.6.1",
     "express": "4.17.1",
     "jsdom": "^16.1.0",
     "nodemon": "2.0.2",
